@@ -1,22 +1,24 @@
-%define name        libshout
-%define version     2.2.2
-%define release     %mkrel  1
-%define lib_major   3
-%define lib_name    %mklibname shout %{lib_major}
+%define name	libshout
+%define version	2.2.2
+%define release	%mkrel 1
 
-Name:       %{name}
-Version:    %{version}
-Release:    %{release}
-Summary:    A library for communicating with and sending data to an icecast server
-Group:      System/Libraries
-URL:        http://www.icecast.org/projects/libshout/
-Source:     http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.bz2
-License:    LGPL
-BuildRequires:  libogg-devel
-BuildRequires:  libvorbis-devel
-BuildRequires:  libtheora-devel
-BuildRequires:  speex-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+%define major		3
+%define libname		%mklibname shout %{major}
+%define develname	%mklibname shout -d
+
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+Summary:	A library for communicating with and sending data to an icecast server
+Group:		System/Libraries
+URL:		http://www.icecast.org/projects/libshout/
+Source:		http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.bz2
+License:	LGPL+
+BuildRequires:	libogg-devel
+BuildRequires:	libvorbis-devel
+BuildRequires:	libtheora-devel
+BuildRequires:	speex-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Libshout is a library for communicating with and sending data to an
@@ -29,31 +31,26 @@ allows developers who want a specific feature set (database access,
 request taking) to concentrate on that feature set, instead of worrying
 about how server communication works.
 
-Please refer to the api reference and example code to start learning how
+Please refer to the API reference and example code to start learning how
 to use libshout in your own code.
 
-Libshout is licensed under the LGPL.  Please see the COPYING file for 
-details.
+%package -n %{libname}
+Summary:	Main library for %{name}
+Group:		System/Libraries
 
-If you have any questions or comments, please visit us at 
-http://www.icecast.org or email us at team@icecast.org.
-
-%package -n %{lib_name}
-Summary:    Main library for %{name}
-Group:      System/Libraries
-
-%description -n %{lib_name}
+%description -n %{libname}
 This package contains the library needed to run programs dynamically
 linked with %{name}.
 
-%package -n %{lib_name}-devel
-Summary:    Headers for developing programs that will use %{name}
-Group:      Development/Other
-Requires:   speex-devel
-Requires:   %{lib_name} = %{version}
-Provides:   %{name}-devel = %{version}-%{release}
+%package -n %{develname}
+Summary:	Headers for developing programs that will use %{name}
+Group:		Development/Other
+Requires:	speex-devel
+Requires:	%{libname} = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
+Obsoletes:	%{mklibname shout 3 -d}
 
-%description -n %{lib_name}-devel
+%description -n %{develname}
 This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
@@ -74,15 +71,15 @@ rm -rf %{buildroot}%{_datadir}/doc/%{name}
 %clean
 rm -rf %{buildroot}
 
-%post -n %{lib_name} -p /sbin/ldconfig
+%post -n %{libname} -p /sbin/ldconfig
 
-%postun -n %{lib_name} -p /sbin/ldconfig
+%postun -n %{libname} -p /sbin/ldconfig
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
-%files -n %{lib_name}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc README
 %{_includedir}/*
