@@ -18,6 +18,7 @@ BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	libtheora-devel
 BuildRequires:	speex-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Libshout is a library for communicating with and sending data to an
