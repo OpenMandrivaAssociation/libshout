@@ -1,6 +1,6 @@
 %define name	libshout
 %define version	2.2.2
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 %define major		3
 %define libname		%mklibname shout %{major}
