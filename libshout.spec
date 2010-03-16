@@ -5,7 +5,7 @@
 Summary:	A library for communicating with and sending data to an icecast server
 Name:		libshout
 Version:	2.2.2
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		System/Libraries
 License:	LGPL+
 URL:		http://www.icecast.org/
