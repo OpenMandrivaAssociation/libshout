@@ -4,18 +4,16 @@
 
 Summary:	A library for communicating with and sending data to an icecast server
 Name:		libshout
-Version:	2.2.2
-Release:	%mkrel 8
+Version:	2.3.0
+Release:	1
 Group:		System/Libraries
 License:	LGPL+
 URL:		http://www.icecast.org/
-Source0:	http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.bz2
-Patch0:		libshout-speex_linkage_fix.diff
+Source0:	http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.gz
 BuildRequires:	libogg-devel
 BuildRequires:	libvorbis-devel
 BuildRequires:	libtheora-devel
 BuildRequires:	speex-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libshout is a library for communicating with and sending data to an
@@ -54,7 +52,6 @@ applications which will use %{name}.
 %prep
 
 %setup -q
-%patch0 -p0
 
 %build
 autoreconf -fis
@@ -62,34 +59,19 @@ autoreconf -fis
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 # remove installed doc
 rm -rf %{buildroot}%{_datadir}/doc/%{name}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+rm -rf %{buildroot}%{_libdir}/*.la
+rm -rf %{buildroot}%{_libdir}/*.a
 
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/*.so.*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %doc README
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.la
-%{_libdir}/*.a
 %{_libdir}/pkgconfig/shout.pc
 %{_datadir}/aclocal/shout.m4
