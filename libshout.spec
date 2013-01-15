@@ -10,6 +10,7 @@ Group:		System/Libraries
 License:	LGPL+
 URL:		http://www.icecast.org/
 Source0:	http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.gz
+Patch0:		libshout-automake-1.13.patch
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(vorbis)
 BuildRequires:	pkgconfig(theora)
@@ -51,6 +52,7 @@ applications which will use %{name}.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 autoreconf -fis
