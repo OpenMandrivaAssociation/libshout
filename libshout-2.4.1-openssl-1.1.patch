@@ -1,13 +1,14 @@
---- libshout-2.4.1/src/tls.c.omv~	2017-11-23 20:34:32.051015770 +0100
-+++ libshout-2.4.1/src/tls.c	2017-11-23 20:36:03.384160689 +0100
-@@ -65,8 +65,8 @@ static inline int tls_setup(shout_tls_t
+diff -up libshout-2.4.2/src/tls.c.0001~ libshout-2.4.2/src/tls.c
+--- libshout-2.4.2/src/tls.c.0001~	2019-05-02 02:11:24.050117514 +0200
++++ libshout-2.4.2/src/tls.c	2019-05-02 02:11:51.403866996 +0200
+@@ -90,8 +90,8 @@ static inline int tls_setup(shout_tls_t
  
- 	SSL_library_init();
- 	SSL_load_error_strings();
--	SSLeay_add_all_algorithms();
-- 	SSLeay_add_ssl_algorithms();
-+	OpenSSL_add_all_algorithms();
-+ 	OpenSSL_add_ssl_algorithms();
+     SSL_library_init();
+     SSL_load_error_strings();
+-    SSLeay_add_all_algorithms();
+-    SSLeay_add_ssl_algorithms();
++    OpenSSL_add_all_algorithms();
++    OpenSSL_add_ssl_algorithms();
  
- 	meth = TLSv1_client_method();
- 	if (!meth)
+     meth = TLSv1_client_method();
+     if (!meth)

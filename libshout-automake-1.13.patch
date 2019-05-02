@@ -1,5 +1,6 @@
---- libshout-2.3.1/configure.ac.bero	2013-01-16 00:36:49.118206157 +0100
-+++ libshout-2.3.1/configure.ac	2013-01-16 00:37:00.508070198 +0100
+diff -up libshout-2.4.2/configure.ac.0000~ libshout-2.4.2/configure.ac
+--- libshout-2.4.2/configure.ac.0000~	2019-04-29 15:36:24.000000000 +0200
++++ libshout-2.4.2/configure.ac	2019-05-02 02:09:23.527229971 +0200
 @@ -9,7 +9,7 @@ m4_define(libshout_version, libshout_maj
  AC_INIT([libshout], libshout_version, [icecast-dev@xiph.org])
  AC_PREREQ([2.54])
@@ -9,12 +10,3 @@
  # config.h guard
  AH_TOP([#ifndef __CONFIG_H__
  #define __CONFIG_H__ 1])
-@@ -21,7 +21,7 @@ AC_DEFINE([LIBSHOUT_MICRO], libshout_mic
- 
- VERSION=libshout_version
- 
--AM_INIT_AUTOMAKE([libshout], libshout_version)
-+AM_INIT_AUTOMAKE
- AM_MAINTAINER_MODE
- 
- dnl create our name mangling macro
