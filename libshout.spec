@@ -4,13 +4,12 @@
 
 Summary:	A library for communicating with and sending data to an icecast server
 Name:		libshout
-Version:	2.4.3
+Version:	2.4.5
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
 Url:		http://www.icecast.org/
 Source0:	http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.gz
-Patch0:		libshout-automake-1.13.patch
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(speex)
 BuildRequires:	pkgconfig(theora)
@@ -62,6 +61,10 @@ autoreconf -fis
 
 # remove installed doc
 rm -rf %{buildroot}%{_datadir}/doc/%{name}
+
+%files
+%{_bindir}/shout
+%{_mandir}/man1/shout.1*
 
 %files -n %{libname}
 %{_libdir}/libshout.so.%{major}*
