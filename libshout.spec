@@ -4,7 +4,7 @@
 
 Summary:	A library for communicating with and sending data to an icecast server
 Name:		libshout
-Version:	2.4.5
+Version:	2.4.6
 Release:	1
 Group:		System/Libraries
 License:	LGPLv2+
