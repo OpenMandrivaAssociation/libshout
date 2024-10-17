@@ -8,7 +8,7 @@ Version:	2.4.6
 Release:	2
 Group:		System/Libraries
 License:	LGPLv2+
-Url:		http://www.icecast.org/
+Url:		https://www.icecast.org/
 Source0:	http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(speex)
