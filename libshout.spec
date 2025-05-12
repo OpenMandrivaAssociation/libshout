@@ -1,3 +1,4 @@
+%global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
 %define major	3
 %define libname	%mklibname shout %{major}
 %define devname	%mklibname shout -d
