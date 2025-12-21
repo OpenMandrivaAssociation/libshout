@@ -11,6 +11,11 @@ Group:		System/Libraries
 License:	LGPLv2+
 Url:		https://www.icecast.org/
 Source0:	http://downloads.us.xiph.org/releases/libshout/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(ogg)
 BuildRequires:	pkgconfig(speex)
 BuildRequires:	pkgconfig(theora)
